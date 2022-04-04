@@ -10,9 +10,9 @@ from datetime import datetime
 
 from shutil import rmtree
 
-from .syslog import set_log_level
-from .rwio import (load_json, save_json, update_json, load_file, save_file,
-                   safety_save)
+from pathta.syslog import set_log_level
+from pathta.rwio import (load_json, save_json, update_json, load_file,
+                         save_file, safety_save)
 
 
 BP_FILE = 'bpsettings.json'
@@ -36,15 +36,15 @@ class Study(object):
     >>> studyName = 'MyStudy'
 
     >>> # Create a study object :
-    >>> studObj = study(name=studyName)
-    >>> studObj.add(path)   # Create the study
-    >>> studObj.studies()   # Print the list of studies
+    >>> st = Study(name=studyName)
+    >>> st.add(path)   # Create the study
+    >>> st.studies()   # Print the list of studies
 
     >>> # Manage files in your study :
-    >>> fileList = studObj.search('filter1', 'filter2', folder='features')
-    >>> # Let say that fileList contain two files : ['f_1.mat', 'f_2.pickle']
+    >>> file_list = st.search('filter1', 'filter2', folder='features')
+    >>> # Let say that file_list contain two files : ['f_1.mat', 'f_2.pickle']
     >>> # Load the second file :
-    >>> data = studObj.load('features', 'file2.pickle')
+    >>> data = st.load('features', 'file2.pickle')
     """
 
     def __init__(self, name, verbose=None):  # noqa
@@ -118,9 +118,10 @@ class Study(object):
         # Main studyName directory :
         self._bpfolders(os.path.join(path, self.name))
         # Subfolders :
-        sfold = ['config', 'database', 'feature', 'classified', 'multifeature',
-                 'figure', 'backup', 'anatomy', 'setting', 'other', 'script',
-                 'xyz', 'channels']
+        sfold = [
+            'config', 'raw', 'pow', 'fig', 'anatomy', 'script', 'setting',
+            'conn', 'behavior', 'stats', 'cache'
+        ]
         _ = [self._bpfolders(os.path.join(path, self.name, k)) for k in sfold]  # noqa
         # Add the study to the bpsetting file:
         now = datetime.now()
@@ -511,3 +512,13 @@ class Study(object):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         bp_path = re.findall('(.*?)pathta', dir_path)[0]
         return os.path.join(*(bp_path, 'pathta', BP_FILE))
+
+if __name__ == '__main__':
+    # define the name of your study
+    stname = "MyStudy"
+    # define the root path where to save this study
+    path = "/home/etienne"
+    # create the study
+    st = Study(stname)
+    # add it
+    st.add(path)
