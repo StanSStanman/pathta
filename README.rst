@@ -11,6 +11,17 @@ In case you asked, here's the logo :
 
 Created by Etienne Combrithon, Ruggero Bathanithi
 
+Installing Pathta
+-----------------
+
+To install Pathta, clone the repository, go inside it and run :
+
+.. code-block:: python
+
+    python setup.py develop
+
+Then wait for 10 minutes for al dente. Don't use cream.
+
 Usage
 -----
 
