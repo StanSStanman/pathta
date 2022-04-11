@@ -17,7 +17,6 @@ In case you asked, here's the logo :
     :align:  center
     :width: 637px
     :height: 266px
-    :alt: alternate text
 
 Created by Etienne Combrithon, Ruggero Bathanithi
 
