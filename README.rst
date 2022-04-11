@@ -15,8 +15,8 @@ In case you asked, here's the logo :
     
 .. image::  https://github.com/StanSStanman/pathta/blob/master/docs/source/_static/PATHTA_small.png
     :align:  center
-    :width: 637px
-    :height: 266px
+    :width: 200px
+    :height: 100px
 
 Created by Etienne Combrithon, Ruggero Bathanithi
 
