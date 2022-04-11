@@ -12,6 +12,9 @@ In case you asked, here's the logo :
 
 .. figure::  https://github.com/EtienneCmb/pathta/blob/master/docs/source/_static/PATHTA.png
     :align:  center
+    
+.. figure::  https://github.com/StanSStanman/pathta/blob/master/docs/source/_static/PATHTA.png
+    :align:  center
 
 Created by Etienne Combrithon, Ruggero Bathanithi
 
